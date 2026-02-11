@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="rootPane" prefHeight="700.0" prefWidth="867.0"
+            xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="application_audio.AudioSettingsController">
+    <children>
+
+        <!-- Background Image -->
+        <ImageView fx:id="backgroundImage" pickOnBounds="true" preserveRatio="false"
+                   AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                   AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <image>
+                <Image url="@Backgroud/background-2.png%20(1).png" />
+            </image>
+        </ImageView>
+
+        <!-- Main Content Container -->
+        <StackPane alignment="CENTER"
+                   AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                   AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+
+                <!-- Outer layout (20% smaller spacing/padding) -->
+                <VBox alignment="TOP_CENTER" spacing="16" style="-fx-padding: 26 13 26 13;">
+
+                    <!-- Header with Back Button -->
+                    <HBox alignment="TOP_LEFT" prefHeight="40.0">
+                        <Button fx:id="backButton" mnemonicParsing="false" onAction="#handleBack"
+                                style="-fx-background-color: #5a3a42; -fx-text-fill: #d4b5a0; -fx-border-color: #3a2a32; -fx-border-width: 2px; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 8 16 8 16; -fx-font-weight: bold; -fx-cursor: hand;"
+                                text="← BACK" />
+                    </HBox>
+
+                    <!-- Main Settings Container (20% smaller) -->
+                    <VBox alignment="TOP_CENTER" maxWidth="480.0" prefWidth="480.0"
+                          style="-fx-background-color: #5a3a42; -fx-border-color: #3a2a32; -fx-border-width: 4px; -fx-border-radius: 16; -fx-background-radius: 16;">
+                        <padding>
+                            <Insets bottom="26.0" left="26.0" right="26.0" top="26.0" />
+                        </padding>
+
+                        <!-- Title (20% smaller) -->
+                        <Label text="SETTINGS"
+                               style="-fx-text-fill: #f4d03f; -fx-font-weight: bold; -fx-font-size: 29px; -fx-padding: 0 0 26 0;" />
+
+                        <!-- Settings Options -->
+                        <VBox alignment="CENTER" spacing="19.0" style="-fx-spacing: 19;">
+
+                            <!-- Music Volume Section -->
+                            <VBox alignment="CENTER" spacing="13.0"
+                                  style="-fx-background-color: #3a2a32; -fx-border-color: #2a1a22; -fx-border-width: 2px; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 19;">
+                                <HBox alignment="CENTER_LEFT" prefHeight="32.0" spacing="10.0">
+                                    <Label text="🎵"
+                                           style="-fx-text-fill: #d4a5d4; -fx-font-size: 19px; -fx-padding: 0 10 0 0;" />
+                                    <Label text="BACKGROUND MUSIC"
+                                           style="-fx-text-fill: #d4b5a0; -fx-font-weight: bold; -fx-font-size: 16px;" />
+                                    <HBox HBox.hgrow="ALWAYS" />
+                                    <CheckBox fx:id="musicToggle" selected="true" text="Enable"
+                                              style="-fx-text-fill: #d4b5a0;" />
+                                </HBox>
+
+                                <Slider fx:id="musicSlider" blockIncrement="5" max="100" min="0" value="50"
+                                        prefWidth="320.0" showTickLabels="false" showTickMarks="false"
+                                        style="-fx-background-color: transparent; -fx-control-inner-background: transparent; -fx-padding: 6 0 6 0;" />
+
+                                <Label fx:id="musicValue" text="50%" alignment="CENTER"
+                                       style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 19px; -fx-padding: 6 0 0 0;" />
+                            </VBox>
+
+                            <!-- SFX Volume Section -->
+                            <VBox alignment="CENTER" spacing="13.0"
+                                  style="-fx-background-color: #3a2a32; -fx-border-color: #2a1a22; -fx-border-width: 2px; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 19;">
+                                <HBox alignment="CENTER_LEFT" prefHeight="32.0" spacing="10.0">
+                                    <Label text="🔊"
+                                           style="-fx-text-fill: #9ab8d4; -fx-font-size: 19px; -fx-padding: 0 10 0 0;" />
+                                    <Label text="SOUND EFFECTS"
+                                           style="-fx-text-fill: #d4b5a0; -fx-font-weight: bold; -fx-font-size: 16px;" />
+                                </HBox>
+
+                                <Slider fx:id="sfxSlider" blockIncrement="5" max="100" min="0" value="50"
+                                        prefWidth="320.0" showTickLabels="false" showTickMarks="false"
+                                        style="-fx-background-color: transparent; -fx-control-inner-background: transparent; -fx-padding: 6 0 6 0;" />
+
+                                <Label fx:id="sfxValue" text="50%" alignment="CENTER"
+                                       style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 19px; -fx-padding: 6 0 0 0;" />
+                            </VBox>
+
+                            <!-- Reset Button (20% smaller) -->
+                            <Button fx:id="resetButton" mnemonicParsing="false" onAction="#handleReset"
+                                    prefHeight="45.0" prefWidth="320.0"
+                                    style="-fx-background-color: #d46a6a; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px; -fx-background-radius: 8; -fx-border-color: #a44a4a; -fx-border-width: 2px; -fx-border-radius: 8; -fx-cursor: hand;"
+                                    text="RESET TO DEFAULT" />
+                        </VBox>
+                    </VBox>
+                </VBox>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>

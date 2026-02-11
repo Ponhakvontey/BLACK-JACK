@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" prefHeight="700.0" prefWidth="867.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.GameController">
+   <children>
+      <ImageView fx:id="backgroundImage" fitHeight="700.0" fitWidth="867.0" pickOnBounds="true" preserveRatio="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@Backgroud/background-2.png%20(1).png" />
+         </image>
+      </ImageView>
+      
+      <!-- Main Game Area -->
+      <StackPane pickOnBounds="false" prefHeight="700.0" prefWidth="867.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         
+         <!-- GAME SCREEN (Hidden Initially) -->
+         <BorderPane fx:id="gameBox" visible="true">
+            <opaqueInsets>
+               <Insets />
+            </opaqueInsets>
+            <center>
+                 <VBox alignment="CENTER" prefHeight="87.0" spacing="10.0" style="-fx-padding: 5;" BorderPane.alignment="CENTER">
+                  <VBox alignment="CENTER" prefHeight="87.0" prefWidth="751.0" spacing="10.0" style="-fx-background-color: rgba(88, 58, 66, 1); -fx-padding: 15; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #000000;">
+                     <children>
+            
+                                       <Label text="DEALER" textFill="#cfb2ab">
+                               <font>
+                                  <Font name="System Bold" size="16" />
+                               </font>
+                           </Label>
+                        <HBox fx:id="dealerCardsBox" alignment="CENTER" spacing="10">
+                           <children>
+            
+                                                   		 <Label fx:id="dealerScoreLabel" text="Dealer: ?" textFill="white">
+                                     <font>
+                                        <Font size="13" />
+                                     </font>
+                                 </Label>
+                           </children></HBox>
+                     </children>
+                  </VBox>
+                     <Label fx:id="messageLabel" text="Hit or Stand?" textFill="GOLD">
+                         <font>
+                            <Font name="System Bold" size="20" />
+                         </font>
+                     </Label>
+                  <StackPane prefHeight="87.0" prefWidth="751.0">
+                     <children>
+                     	<!-- SPLIT MODE  -->
+                        <HBox fx:id="splitHandsBox" alignment="CENTER" managed="true" prefHeight="89.0" prefWidth="751.0" spacing="10" visible="true">
+                           <children>
+                           <!-- HAND 1 -->
+                              <VBox fx:id="hand1Box" alignment="CENTER" prefHeight="87.0" prefWidth="327.5" spacing="10.0" style="-fx-background-color: rgba(88, 58, 66, 1); -fx-padding: 15; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #000000;" visible="false">
+                                 <children>
+                                    <Label fx:id="hand1ScoreLabel" text="Hand 1: 0" textFill="white">
+                                       <font>
+                                          <Font size="13" />
+                                       </font>
+                                    </Label>
+                                    <HBox fx:id="hand1CardsBox" alignment="CENTER" managed="true" spacing="10" visible="true">
+                                       <children>
+                                          <Label text="HAND 1" textFill="#cfb2ab">
+                                             <font>
+                                                <Font name="System Bold" size="16" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <!-- HAND 2 -->
+                              <VBox fx:id="splitHandSection" alignment="CENTER" managed="false" prefHeight="87.0" prefWidth="327.5" spacing="10.0" style="-fx-padding: 15; -fx-background-color: rgba(88, 58, 66, 1); -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black;" visible="false">
+                                 <children>
+                                    <Label fx:id="splitScoreLabel" text="Hand 2: 0" textFill="#f8f8f8">
+                                       <font>
+                                          <Font size="12" />
+                                       </font>
+                                    </Label>
+                                    <HBox fx:id="splitCardsBox" alignment="CENTER" managed="true" prefWidth="22.0" spacing="10.0" visible="true" />
+                                    <Label ellipsisString=" #CFB2AB" text="HAND 2" textFill="#cfb2ab">
+                                       <font>
+                                          <Font name="System Bold" size="14" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <!-- NORMAL MODE (default visible) -->
+                        <VBox fx:id="normalPlayerBox" alignment="CENTER" managed="true" prefHeight="87.0" prefWidth="751.0" spacing="10.0" style="-fx-background-color: rgba(88, 58, 66, 1); -fx-padding: 15; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #000000;" visible="true">
+                           <children>
+            
+                                                                                    <Label fx:id="playerScoreLabel" text="Player: 0" textFill="white">
+                                     <font>
+                                        <Font size="13" />
+                                     </font>
+                                 </Label>
+                              <HBox fx:id="playerCardsBox" alignment="CENTER" spacing="10">
+                                 <children>
+                  
+                                                                                          <Label text="PLAYER" textFill="white">
+                                           <font>
+                                              <Font name="System Bold" size="16" />
+                                           </font>
+                                       </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </StackPane>
+                  <HBox alignment="CENTER" spacing="8.0" style="-fx-padding: 15 0 10 0;">
+                     <children>
+                        <Button fx:id="hitButton" onAction="#onHit" prefHeight="38.0" prefWidth="85.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 18; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #000000; -fx-font-size: 13;" text="HIT" textFill="WHITE" />
+                        <Button fx:id="standButton" onAction="#onStand" prefHeight="38.0" prefWidth="84.0" style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 18; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: black; -fx-font-size: 13;" text="STAND" />
+                        <Button fx:id="insuranceButton" onAction="#onInsurance" prefHeight="38.0" prefWidth="120.0" style="-fx-background-color: MAGENTA; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 18; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: black; -fx-font-size: 13;" text="INSURANCE" />
+                        <Button fx:id="doubleButton" onAction="#onDouble" prefHeight="38.0" prefWidth="100.0" style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 18; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: black; -fx-font-size: 13;" text="DOUBLE" />
+                        <Button fx:id="splitButton" onAction="#onSplit" prefHeight="38.0" prefWidth="75" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 18; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: black; -fx-font-size: 13;" text="SPLIT" />
+                        <Button fx:id="surrenderButton" onAction="#onSurrender" prefHeight="38.0" prefWidth="123.0" style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 18; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: black; -fx-font-size: 13;" text="SURRENDER" />
+                     </children>
+                  </HBox>
+                        
+                 </VBox>
+            </center>
+            <top>
+               <VBox prefHeight="130.0" prefWidth="867.0" BorderPane.alignment="CENTER" />
+            </top>
+            <left>
+               <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+            </left>
+            <right>
+               <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+            </right>
+            <bottom>
+               <VBox prefHeight="0.0" prefWidth="867.0" BorderPane.alignment="CENTER" />
+            </bottom>
+
+         </BorderPane>
+         
+                                    <!-- BETTING SCREEN (Shows First) -->
+         <VBox fx:id="bettingBox" alignment="CENTER" spacing="30" style="-fx-padding: 15;" visible="false">
+            
+                                       <VBox alignment="CENTER" spacing="20.0" style="-fx-background-color: rgba(88, 58, 66, 1); -fx-padding: 40; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #000000;">
+               <Label style="-fx-text-fill: #EBCE3F;" text="PLACE YOUR BET" textFill="white">
+                  <font>
+                     <Font name="System Bold" size="18.0" />
+                  </font>
+               </Label>
+               
+                                          <HBox alignment="CENTER" spacing="10">
+                  <Label style="-fx-text-fill: #CFB2AB;" text="Bet Amount: $" textFill="white">
+                     <font>
+                        <Font name="System Bold" size="18" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="betTextField" prefWidth="180" promptText="Enter amount" style="-fx-font-size: 16px; -fx-background-color: rgb(57, 42, 49, 1.0); -fx-padding: 8; -fx-text-fill: #CFB2AB; -fx-border-color: #000000; -fx-background-radius: 15; -fx-border-radius: 15;">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></TextField>
+               </HBox>
+               
+                                          <Button fx:id="placeBetButton" onAction="#onPlaceBet" style="-fx-background-color: #EBCE3F; -fx-text-fill: black; -fx-font-weight: bold; -fx-padding: 10 40; -fx-font-size: 20px; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" text="DEAL" />
+               
+                                          <Label fx:id="bettingMessageLabel" text="" textFill="#FF6B6B">
+                  <font>
+                     <Font name="System Bold" size="14" />
+                  </font>
+               </Label>
+            </VBox>
+         </VBox>
+         <VBox fx:id="statusbox" alignment="CENTER" spacing="25" style="-fx-padding: 26 13 26 13;" visible="false">
+            <children>
+               <Label contentDisplay="CENTER" style="-fx-text-fill: #FFFDFF; -fx-font-weight: bold; -fx-font-size: 29; -fx-padding: 0 0 26 0;" text="BLACK JACK" />
+               <VBox alignment="CENTER">
+                  <children>
+                     <HBox alignment="CENTER" spacing="20">
+                        <children>
+                           <Button fx:id="playbutton" mnemonicParsing="false" onAction="#onPlay" prefHeight="93.0" prefWidth="180.0" style="-fx-background-color: rgba(88, 58, 66, 0.95); -fx-text-fill: #D0B048; -fx-font-weight: bold; -fx-font-size: 20; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #3a2a32; -fx-border-width: 4; -fx-cursor: hand;" text="▶ Play" />
+                           <Button fx:id="Userstatusbutton" mnemonicParsing="false" onAction="#onOpenUserstatus" prefHeight="93.0" prefWidth="180.0" style="-fx-background-color: rgba(88, 58, 66, 0.95); -fx-text-fill: #D7B8A4; -fx-font-weight: bold; -fx-font-size: 20; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #3a2a32; -fx-cursor: hand; -fx-border-width: 4;" text="👤 User status" />
+                        </children>
+                     </HBox>
+                  </children>
+               </VBox>
+               <VBox alignment="CENTER">
+                  <children>
+                     <HBox alignment="CENTER" spacing="20">
+                        <children>
+                           <Button fx:id="settingsButton" mnemonicParsing="false" onAction="#onOpenSettings" prefHeight="93.0" prefWidth="180.0" style="-fx-background-color: rgba(88, 58, 66, 0.95); -fx-text-fill: #92B9DA; -fx-font-weight: bold; -fx-font-size: 20; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #3a2a32; -fx-cursor: hand; -fx-border-width: 4;" text="⚙ SETTINGS" />
+                           <Button fx:id="guidebutton" mnemonicParsing="false" onAction="#onOpenguide" prefHeight="93.0" prefWidth="180.0" style="-fx-background-color: rgba(88, 58, 66, 0.95); -fx-text-fill: #D8A9CD; -fx-font-weight: bold; -fx-font-size: 20; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #3a2a32; -fx-cursor: hand; -fx-border-width: 4;" text="🕮 How to play" />
+                        </children>
+                     </HBox>
+                  </children>
+               </VBox>
+               <VBox>
+                  <children>
+                     <HBox alignment="CENTER">
+                        <children>
+                           <Button mnemonicParsing="false" onAction="#onLogout" prefHeight="93.0" prefWidth="180.0" style="-fx-background-color: rgba(88, 58, 66, 0.95); -fx-text-fill: #CE6D6B; -fx-font-weight: bold; -fx-font-size: 20; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #3a2a32; -fx-cursor: hand; -fx-border-width: 4;" text="➜] Logout" />
+                        </children>
+                     </HBox>
+                  </children>
+               </VBox>
+            </children>
+         </VBox>
+         <VBox fx:id="guideLayer" alignment="TOP_CENTER" spacing="50.0" style="-fx-padding: 26 13 26 13;">
+            <children>
+               <HBox fx:id="guideBackBar" alignment="TOP_LEFT" prefHeight="40.0">
+                  <children>
+                     <Button mnemonicParsing="false" onAction="#onBackFromGuide" style="-fx-background-color: #5a3a42; -fx-text-fill: #d4b5a0; -fx-border-color: #3a2a32; -fx-border-width: 2px; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 8 16 8 16; -fx-font-weight: bold; -fx-cursor: hand;" text="← BACK" />
+                  </children>
+               </HBox>
+               <VBox fx:id="guideBox" alignment="CENTER" maxHeight="550.0" maxWidth="480.0" prefHeight="550.0" prefWidth="480.0" spacing="13.0" style="-fx-background-color: #583A42; -fx-background-radius: 16; -fx-border-radius: 16; -fx-border-color: #3a2a32; -fx-border-width: 4px;">
+                  <children>
+                     <Label contentDisplay="CENTER" style="-fx-text-fill: #f4d03f; -fx-font-weight: bold; -fx-font-size: 29; -fx-padding: 0 0 26 0;" text="HOW TO PLAY" />
+                     <VBox alignment="CENTER" maxHeight="400.0" maxWidth="300.0" prefHeight="400.0" prefWidth="300.0" spacing="19.0" style="-fx-spacing: 19;">
+                        <children>
+                           <VBox alignment="CENTER" maxHeight="150.0" maxWidth="300.0" prefHeight="150.0" prefWidth="300.0" spacing="13.0" style="-fx-background-color: #392A31; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #2a1a22; -fx-border-width: 2px;">
+                              <children>
+                                 <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-text-fill: #AABAD1; -fx-font-weight: bold; -fx-font-size: 20;" text="CARD VALUES" />
+                                 <Label maxWidth="250.0" prefWidth="250.0" style="-fx-text-fill: #CFB2AB; -fx-font-size: 14;" text="• 2–10 = face value &#10;• J/Q/K = 10 &#10;• Ace = 1 or 11 (best for your hand)." wrapText="true">
+                                    <font>
+                                       <Font size="13.0" />
+                                    </font></Label>
+                              </children>
+                           </VBox>
+                           <VBox alignment="CENTER" maxHeight="200.0" maxWidth="300.0" prefHeight="200.0" prefWidth="300.0" spacing="13.0" style="-fx-background-color: #392A31; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #2a1a22; -fx-border-width: 2px;">
+                              <children>
+                                 <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-text-fill: #D8A9CD; -fx-font-weight: bold; -fx-font-size: 20;" text="GAME PLAY" />
+                                 <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-background: transparent;">
+                                    <content>
+                                       <Label maxWidth="250.0" prefWidth="250.0" style="-fx-text-fill: #CFB2AB; -fx-font-size: 14;" text="• Hit: take a card&#10;• Stand: end your turn&#10;• Insurance: return 3.0*bet if you guess dealer have blackjack correctly&#10;• Double: Same as hit but double the bet&#10;• Split: If hand is both the same value then can split to play two hands.&#10;• Surrender: return half of your bet&#10;• If you go over 21, you bust&#10;• Blackjack (A + 10) wins instantly (unless dealer also has it)" wrapText="true" />
+                                    </content>
+                                 </ScrollPane>
+                              </children>
+                           </VBox>
+                        </children>
+                     </VBox>
+                  </children>
+               </VBox>
+            </children>
+         </VBox>
+         <VBox fx:id="Userstatusbox" alignment="TOP_CENTER" prefWidth="867.0" spacing="50.0" style="-fx-padding: 26 13 26 13;" visible="false">
+            <children>
+               <HBox fx:id="userStatusBackBar" alignment="TOP_LEFT" prefHeight="40.0">
+                  <children>
+                     <Button mnemonicParsing="false" onAction="#onBackFromUserStatus" style="-fx-background-color: #5a3a42; -fx-text-fill: #d4b5a0; -fx-border-color: #3a2a32; -fx-border-width: 2px; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 8 16 8 16; -fx-font-weight: bold; -fx-cursor: hand;" text="← BACK" />
+                  </children>
+               </HBox>
+               <VBox alignment="CENTER" maxHeight="600.0" maxWidth="480.0" prefHeight="600.0" prefWidth="480.0" spacing="10.0" style="-fx-background-color: #583A42; -fx-border-color: #3a2a32; -fx-background-radius: 16; -fx-border-radius: 16; -fx-border-width: 4;">
+                  <children>
+                     <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                        <children>
+                           <Label contentDisplay="CENTER" style="-fx-text-fill: #f4d03f; -fx-font-weight: bold; -fx-font-size: 29; -fx-padding: 0 0 26 0;" text="USER STATUS" />
+                        </children>
+                     </VBox>
+                     <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                        <children>
+                           <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="13.0">
+                              <children>
+                                 <VBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #392A31; -fx-border-color: #2a1a22 #2a1a22; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-width: 4;">
+                                    <children>
+                                       <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-text-fill: #D7B8A4; -fx-font-size: 14; -fx-font-weight: bold;" text="TOTAL GAMES" />
+                                       <Label fx:id="totalGamesValue" alignment="CENTER_RIGHT" style="-fx-text-fill: #EBCE3F; -fx-font-size: 18; -fx-font-weight: bold;" text="0" />
+                                    </children>
+                                 </VBox>
+                                 <VBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #392A31; -fx-border-color: #2a1a22 #2a1a22; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-width: 4;">
+                                    <children>
+                                       <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-text-fill: #D7B8A4; -fx-font-size: 14; -fx-font-weight: bold;" text="WINS" />
+                                       <Label fx:id="winsValue" style="-fx-text-fill: #EBCE3F; -fx-font-size: 18; -fx-font-weight: bold;" text="0" />
+                                    </children>
+                                 </VBox>
+                              </children>
+                           </HBox>
+                        </children>
+                     </VBox>
+                     <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                        <children>
+                           <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="13.0">
+                              <children>
+                                 <VBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #392A31; -fx-border-color: #2a1a22 #2a1a22; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-width: 4;">
+                                    <children>
+                                       <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-text-fill: #D7B8A4; -fx-font-size: 14; -fx-font-weight: bold;" text="LOSSES" />
+                                       <Label fx:id="lossesValue" style="-fx-text-fill: #EBCE3F; -fx-font-size: 18; -fx-font-weight: bold;" text="0" />
+                                    </children>
+                                 </VBox>
+                                 <VBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #392A31; -fx-border-color: #2a1a22 #2a1a22; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-width: 4;">
+                                    <children>
+                                       <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-text-fill: #D7B8A4; -fx-font-size: 14; -fx-font-weight: bold;" text="WIN RATE" />
+                                       <Label fx:id="winRateValue" style="-fx-text-fill: #EBCE3F; -fx-font-size: 18; -fx-font-weight: bold;" text="0%" />
+                                    </children>
+                                 </VBox>
+                              </children>
+                           </HBox>
+                        </children>
+                     </VBox>
+                     <VBox prefHeight="200.0" prefWidth="100.0">
+                        <children>
+                           <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="13.0">
+                              <children>
+                                 <VBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #392A31; -fx-border-color: #2a1a22 #2a1a22; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-width: 4;">
+                                    <children>
+                                       <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-text-fill: #D7B8A4; -fx-font-size: 14; -fx-font-weight: bold;" text="CURRENT CHIPS" />
+                                       <Label fx:id="chipsValue" style="-fx-text-fill: #EBCE3F; -fx-font-size: 18; -fx-font-weight: bold;" text="0" />
+                                    </children>
+                                 </VBox>
+                                 <VBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #392A31; -fx-border-color: #2a1a22 #2a1a22; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-width: 4;">
+                                    <children>
+                                       <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-text-fill: #D7B8A4; -fx-font-size: 14; -fx-font-weight: bold;" text="HIGHEST WIN" />
+                                       <Label fx:id="highestWinValue" style="-fx-text-fill: #EBCE3F; -fx-font-size: 18; -fx-font-weight: bold;" text="0" />
+                                    </children>
+                                 </VBox>
+                              </children>
+                           </HBox>
+                        </children>
+                     </VBox>
+                     <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                        <children>
+                           <Button mnemonicParsing="false" onAction="#onOpenProfile" prefHeight="50.0" prefWidth="150.0" style="-fx-border-color: #2a1a22; -fx-background-color: #f4d03f; -fx-text-fill: black; -fx-font-size: 14; -fx-font-weight: bold; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-width: 2;" text="View Profile" />
+                        </children>
+                     </VBox>
+                  </children>
+               </VBox>
+            </children>
+         </VBox>
+         <VBox fx:id="profileBox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" visible="false">
+            <children>
+               <HBox fx:id="profileback" alignment="TOP_LEFT" prefHeight="40.0">
+                  <children>
+                     <Button mnemonicParsing="false" onAction="#onBackFromProfileToStatus" style="-fx-background-color: #5a3a42; -fx-text-fill: #d4b5a0; -fx-border-color: #3a2a32; -fx-border-width: 2px; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 8 16 8 16; -fx-font-weight: bold; -fx-cursor: hand;" text="← BACK" />
+                  </children>
+               </HBox>
+               <VBox alignment="CENTER" maxHeight="600.0" maxWidth="480.0" prefHeight="600.0" prefWidth="480.0" spacing="20.0" style="-fx-background-color: #583A42; -fx-border-color: #3a2a32; -fx-background-radius: 16; -fx-border-radius: 16; -fx-border-width: 4;">
+                  <children>
+                     <VBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                        <children>
+                           <Label contentDisplay="CENTER" style="-fx-text-fill: #f4d03f; -fx-font-weight: bold; -fx-font-size: 29; -fx-padding: 0 0 26 0;" text="PROFILE" />
+                        </children>
+                     </VBox>
+                     <VBox alignment="CENTER" maxHeight="200.0" maxWidth="400.0" spacing="20.0">
+                        <children>
+                           <VBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #392A31; -fx-border-color: #2a1a22 #2a1a22; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-width: 4;">
+                              <children>
+                                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                    <children>
+                                       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                          <children>
+                                             <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-text-fill: #D7B8A4; -fx-font-size: 14; -fx-font-weight: bold;" text="USERNAME:" />
+                                          </children>
+                                       </HBox>
+                                       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                          <children>
+                                             <Label fx:id="prousername" alignment="CENTER_RIGHT" style="-fx-text-fill: #EBCE3F; -fx-font-size: 18; -fx-font-weight: bold;" text="0" />
+                                          </children>
+                                       </HBox>
+                                    </children>
+                                 </HBox>
+                              </children>
+                           </VBox>
+                           <VBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #392A31; -fx-border-color: #2a1a22 #2a1a22; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-width: 4;">
+                              <children>
+                                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                    <children>
+                                       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                          <children>
+                                             <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-text-fill: #D7B8A4; -fx-font-size: 14; -fx-font-weight: bold;" text="GMAIL: " />
+                                          </children>
+                                       </HBox>
+                                       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                          <children>
+                                             <Label fx:id="progmail" style="-fx-text-fill: #EBCE3F; -fx-font-size: 18; -fx-font-weight: bold;" text="0" />
+                                          </children>
+                                       </HBox>
+                                    </children>
+                                 </HBox>
+                              </children>
+                           </VBox>
+                        </children>
+                     </VBox>
+                     <VBox alignment="CENTER" maxHeight="200.0" maxWidth="400.0">
+                        <children>
+                           <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="13.0">
+                              <children>
+                                 <VBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #392A31; -fx-border-color: #2a1a22 #2a1a22; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-width: 4;">
+                                    <children>
+                                       <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-text-fill: #D7B8A4; -fx-font-size: 14; -fx-font-weight: bold;" text="MONEY WIN" />
+                                       <Label fx:id="moneywin" style="-fx-text-fill: #90EE90; -fx-font-size: 18; -fx-font-weight: bold;" text="0" />
+                                    </children>
+                                 </VBox>
+                                 <VBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #392A31; -fx-border-color: #2a1a22 #2a1a22; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-width: 4;">
+                                    <children>
+                                       <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-text-fill: #D7B8A4; -fx-font-size: 14; -fx-font-weight: bold;" text="MONEY LOSS" />
+                                       <Label fx:id="moneyloss" style="-fx-text-fill: #FF0000; -fx-font-size: 18; -fx-font-weight: bold;" text="0" />
+                                    </children>
+                                 </VBox>
+                              </children>
+                           </HBox>
+                        </children>
+                     </VBox>
+                     <VBox alignment="CENTER" prefHeight="100.0" prefWidth="300.0" spacing="10.0">
+                        <children>
+                           <Button fx:id="changepassbutton" mnemonicParsing="false" onAction="#onOpenChangePassword" prefHeight="50.0" prefWidth="250.0" style="-fx-border-color: #2a1a22; -fx-background-color: #f4d03f; -fx-text-fill: black; -fx-font-size: 14; -fx-font-weight: bold; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-width: 2;" text="CHANGE PASSWORD" />
+                           <Button fx:id="changeuserbutton" mnemonicParsing="false" onAction="#onOpenChangeUsername" prefHeight="50.0" prefWidth="250.0" style="-fx-border-color: #2a1a22; -fx-background-color: #f4d03f; -fx-text-fill: black; -fx-font-size: 14; -fx-font-weight: bold; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-width: 2;" text="CHANGE USERNAME" />
+                           <Button fx:id="viewgamebutton" mnemonicParsing="false" onAction="#onOpenHistory" prefHeight="50.0" prefWidth="250.0" style="-fx-border-color: #2a1a22; -fx-background-color: #f4d03f; -fx-text-fill: black; -fx-font-size: 14; -fx-font-weight: bold; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-width: 2;" text="VIEW GAME HISTORY" />
+                        </children>
+                     </VBox>
+                  </children>
+               </VBox>
+            </children>
+         </VBox>
+         <VBox fx:id="newUsernameBox" alignment="TOP_CENTER" maxHeight="650.0" maxWidth="800.0" prefHeight="650.0" prefWidth="800.0" spacing="50.0" visible="false">
+            <children>
+               <HBox alignment="TOP_LEFT" prefHeight="40.0">
+                  <children>
+                     <Button mnemonicParsing="false" onAction="#onBackToProfile" style="-fx-background-color: #5a3a42; -fx-text-fill: #d4b5a0; -fx-border-color: #3a2a32; -fx-border-width: 2px; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 8 16 8 16; -fx-font-weight: bold; -fx-cursor: hand;" text="← BACK" />
+                  </children>
+               </HBox>
+               <VBox alignment="CENTER" maxHeight="400.0" maxWidth="480.0" prefHeight="400.0" prefWidth="480.0" spacing="20.0" style="-fx-background-color: #583A42; -fx-border-color: #3a2a32; -fx-background-radius: 16; -fx-border-radius: 16; -fx-border-width: 4;">
+                  <children>
+                     <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                        <children>
+                           <Label contentDisplay="CENTER" style="-fx-text-fill: #f4d03f; -fx-font-weight: bold; -fx-font-size: 29; -fx-padding: 0 0 26 0;" text="NEW USERNAME" />
+                        </children>
+                     </VBox>
+                     <VBox maxWidth="400.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                        <children>
+                           <TextField fx:id="newUsernameField" prefHeight="25.0" prefWidth="272.0" promptText="ENTER NEW USERNAME" style="-fx-background-color: rgb(57, 42, 49, 1.0); -fx-font-size: 13; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: black; -fx-padding: 8 13; -fx-text-fill: #CFB2AB; -fx-font-weight: BOLD;" />
+                            <Label fx:id="usernameMessageLabel" style="-fx-text-fill: #FF6B6B;" text="" />
+                           <TextField fx:id="emailTochangeusername" prefHeight="25.0" prefWidth="272.0" promptText="ENTER EMAIL TO CHANGE USERNAME" style="-fx-background-color: rgb(57, 42, 49, 1.0); -fx-font-size: 13; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: black; -fx-padding: 8 13; -fx-text-fill: #d4b5a0; -fx-font-weight: BOLD;" />
+                           <PasswordField fx:id="passTochangeusername" promptText="ENTER PASSWORD TO CHANGE USERNAME" style="-fx-background-color: rgb(57, 42, 49, 1.0); -fx-font-size: 13; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: BLACK; -fx-padding: 8 13; -fx-font-weight: BOLD; -fx-text-inner-color: #CFB2AB; -fx-prompt-text-fill: #7f6a62;" />
+                        </children>
+                     </VBox>
+                     <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                        <children>
+                           <Button fx:id="newusersavebutton" maxWidth="400.0" mnemonicParsing="false" onAction="#onSaveNewUsername" style="-fx-background-color: #CE6C6B; -fx-font-size: 13; -fx-font-weight: BOLD; -fx-padding: 8 13; -fx-border-radius: 8; -fx-background-radius: 8; -fx-border-color: BLACK; -fx-text-fill: #FFFAF6;" text="SAVE" />
+                        </children>
+                     </VBox>
+                  </children>
+               </VBox>
+            </children>
+         </VBox>
+         <VBox fx:id="newPasswordBox" alignment="TOP_CENTER" maxHeight="650.0" maxWidth="800.0" prefHeight="650.0" prefWidth="800.0" spacing="50.0" visible="false">
+            <children>
+               <HBox alignment="TOP_LEFT" prefHeight="40.0">
+                  <children>
+                     <Button mnemonicParsing="false" onAction="#onBackToProfile" style="-fx-background-color: #5a3a42; -fx-text-fill: #d4b5a0; -fx-border-color: #3a2a32; -fx-border-width: 2px; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 8 16 8 16; -fx-font-weight: bold; -fx-cursor: hand;" text="← BACK" />
+                  </children>
+               </HBox>
+               <VBox alignment="CENTER" maxHeight="400.0" maxWidth="480.0" prefHeight="400.0" prefWidth="480.0" spacing="20.0" style="-fx-background-color: #583A42; -fx-border-color: #3a2a32; -fx-background-radius: 16; -fx-border-radius: 16; -fx-border-width: 4;">
+                  <children>
+                     <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                        <children>
+                           <Label contentDisplay="CENTER" style="-fx-text-fill: #f4d03f; -fx-font-weight: bold; -fx-font-size: 29; -fx-padding: 0 0 26 0;" text="NEW PASSWORD" />
+                        </children>
+                     </VBox>
+                     <VBox maxWidth="400.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                        <children>
+                           <TextField fx:id="newpassemailfield" prefHeight="25.0" prefWidth="272.0" promptText="ENTER EMAIL TO CHANGE USERNAME" style="-fx-background-color: rgb(57, 42, 49, 1.0); -fx-font-size: 13; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: black; -fx-padding: 8 13; -fx-text-fill: #CFB2AB; -fx-font-weight: BOLD;" />
+                           <PasswordField fx:id="oldPasswordField" promptText="ENTER OLD PASSWORD" style="-fx-background-color: rgb(57, 42, 49, 1.0); -fx-font-size: 13; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: BLACK; -fx-padding: 8 13; -fx-font-weight: BOLD; -fx-text-inner-color: #CFB2AB; -fx-prompt-text-fill: #7f6a62;" />
+                           <PasswordField fx:id="newPasswordField" promptText="ENTER NEW PASSWORD" style="-fx-background-color: rgb(57, 42, 49, 1.0); -fx-font-size: 13; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: BLACK; -fx-padding: 8 13; -fx-font-weight: BOLD; -fx-text-inner-color: #CFB2AB; -fx-prompt-text-fill: #7f6a62;" />
+                           <PasswordField fx:id="confirmPasswordField" promptText="ENTER CONFIRM PASSWORD" style="-fx-background-color: rgb(57, 42, 49, 1.0); -fx-font-size: 13; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: BLACK; -fx-padding: 8 13; -fx-font-weight: BOLD; -fx-text-inner-color: #CFB2AB; -fx-prompt-text-fill: #7f6a62;" />
+                           <Label fx:id="passwordMessageLabel" style="-fx-text-fill: #FF6B6B;" text="" />
+                        </children>
+                     </VBox>
+                     <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                        <children>
+                           <Button maxWidth="400.0" mnemonicParsing="false" onAction="#onSaveNewPassword" style="-fx-background-color: #CE6C6B; -fx-font-size: 13; -fx-font-weight: BOLD; -fx-padding: 8 13; -fx-border-radius: 8; -fx-background-radius: 8; -fx-border-color: BLACK; -fx-text-fill: #FFFAF6;" text="SAVE" />
+                        </children>
+                     </VBox>
+                  </children>
+               </VBox>
+            </children>
+         </VBox>
+         <VBox fx:id="historyBox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" visible="false">
+            <children>
+               <HBox alignment="TOP_LEFT" prefHeight="40.0">
+                  <children>
+                     <Button mnemonicParsing="false" onAction="#onBackToProfile" style="-fx-background-color: #5a3a42; -fx-text-fill: #d4b5a0; -fx-border-color: #3a2a32; -fx-border-width: 2px; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 8 16 8 16; -fx-font-weight: bold; -fx-cursor: hand;" text="← BACK" />
+                  </children>
+               </HBox>
+               <VBox alignment="CENTER" maxHeight="600.0" maxWidth="480.0" prefHeight="600.0" prefWidth="480.0" spacing="20.0" style="-fx-background-color: #583A42; -fx-border-color: #3a2a32; -fx-background-radius: 16; -fx-border-radius: 16; -fx-border-width: 4;">
+                  <children>
+                     <VBox alignment="CENTER">
+                        <children>
+                           <Label contentDisplay="CENTER" style="-fx-text-fill: #f4d03f; -fx-font-weight: bold; -fx-font-size: 29; -fx-padding: 0 0 26 0;" text="History" />
+                        </children>
+                     </VBox>
+                     <VBox alignment="CENTER" maxHeight="500.0" maxWidth="425.0" style="-fx-background-color: #392A31; -fx-border-color: #2a1a22; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-width: 4;">
+                        <children>
+                           <HBox alignment="CENTER" maxHeight="75.0" prefHeight="75.0" spacing="20.0" style="-fx-background-color: #392A31; -fx-border-color: #2a1a22 #2a1a22; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-width: 4;">
+                              <children>
+                                 <VBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                    <children>
+                                       <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-text-fill: #D7B8A4; -fx-font-size: 14; -fx-font-weight: bold;" text="DATE" />
+                                    </children>
+                                 </VBox>
+                                 <VBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                    <children>
+                                       <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-text-fill: #D7B8A4; -fx-font-size: 14; -fx-font-weight: bold;" text="AMOUNT" />
+                                    </children>
+                                 </VBox>
+                              </children>
+                           </HBox>
+                           <ScrollPane fitToWidth="true" hbarPolicy="NEVER" maxHeight="400.0" maxWidth="480.0" prefHeight="400.0" prefWidth="480.0" style="-fx-background: transparent; -fx-background-color: transparent;" vbarPolicy="AS_NEEDED">
+                              <content>
+                                 <VBox fx:id="historyListBox" alignment="TOP_CENTER" prefWidth="440.0" spacing="8" style="-fx-background-color: transparent; -fx-padding: 10;">
+                                    <children>
+                                       <HBox alignment="CENTER">
+                                          <children>
+                                             <VBox alignment="CENTER" prefHeight="17.0" prefWidth="200.0">
+                                                <children>
+                                                   <Label text="Label" />
+                                                </children>
+                                             </VBox>
+                                             <VBox alignment="CENTER" prefHeight="17.0" prefWidth="200.0">
+                                                <children>
+                                                   <Label text="Label" />
+                                                </children>
+                                             </VBox>
+                                          </children>
+                                       </HBox>
+                                    </children></VBox>
+                              </content>
+                           </ScrollPane>
+                        </children>
+                     </VBox>
+                  </children>
+               </VBox>
+            </children>
+         </VBox>
+      </StackPane>
+      
+      <!-- Top Bar with Exit, New Game, Balance, and Bet -->
+      <HBox fx:id="topBar" alignment="CENTER_LEFT" spacing="10.0" style="-fx-padding: 10;" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <!-- Left side buttons -->
+            <HBox spacing="10.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Button fx:id="exitButton" onAction="#onExit" style="-fx-background-color: rgba(88, 58, 66, 1); -fx-text-fill: #CFB2AB; -fx-font-weight: bold; -fx-padding: 8 20; -fx-font-size: 14; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" text="EXIT" />
+                  <Button fx:id="newGameButton" onAction="#onNewGame" style="-fx-background-color: rgba(88, 58, 66, 1); -fx-text-fill: #CFB2AB; -fx-font-weight: bold; -fx-padding: 8 20; -fx-font-size: 14; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;" text="NEW GAME" />
+               </children>
+            </HBox>
+            
+            <!-- Spacer to push balance/bet to the right -->
+            <HBox HBox.hgrow="ALWAYS" />
+            
+            <!-- Right side balance and bet display -->
+            <HBox alignment="CENTER_RIGHT" spacing="30.0" style="-fx-background-color: rgba(88, 58, 66, 1); -fx-padding: 8 20; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;">
+               <children>
+                  <Label fx:id="balanceLabel" text="Balance: $1000.00" textFill="#FFD700">
+                     <font>
+                        <Font name="System Bold" size="18" />
+                     </font>
+                  </Label>
+                  <Label fx:id="betLabel" text="Bet: $0.00" textFill="#FF6B6B">
+                     <font>
+                        <Font name="System Bold" size="18" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

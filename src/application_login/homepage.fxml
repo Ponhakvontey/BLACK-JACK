@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" prefHeight="700.0" prefWidth="867.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application_login.LoginController">
+   <children>
+      <ImageView fx:id="backgroundImage" pickOnBounds="true" preserveRatio="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@Backgroud/background-2.png%20(1).png" />
+         </image>
+      </ImageView>
+
+      <StackPane alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox fx:id="Homebox" alignment="CENTER" spacing="20" style="-fx-spacing: 20;" visible="false">
+               <children>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" text="BLACK JACK" textFill="#fdfdfd">
+                           <font>
+                              <Font name="System Bold" size="60.0" />
+                           </font>
+                           <effect>
+                              <DropShadow blurType="TWO_PASS_BOX" offsetX="7.0" offsetY="7.0" />
+                           </effect>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <Button fx:id="Startbutton" mnemonicParsing="false" onAction="#onStart" prefHeight="49.0" prefWidth="117.0" style="-fx-background-color: #583A42; -fx-font-weight: bold; -fx-font-size: 13; -fx-text-fill: #d1b59f; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;" text="START" textFill="#d1b59f">
+                           <font>
+                              <Font name="System Bold" size="25.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+
+            <VBox fx:id="Loginbox" alignment="TOP_CENTER" maxHeight="373.0" maxWidth="357.0" style="-fx-background-color: #583A42; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black; -fx-spacing: 20;">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="49.0" prefWidth="355.0">
+                     <children>
+                        <Label style="-fx-text-fill: #EBCE3F; -fx-font-weight: bold; -fx-font-size: 20;" text="LOGIN" textFill="#583a42" />
+                     </children>
+                  </VBox>
+
+                  <VBox>
+                     <children>
+                        <VBox>
+                           <children>
+                              <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="43.0" prefWidth="112.0" style="-fx-text-fill: #BB9D93; -fx-font-weight: bold; -fx-font-size: 13;" text="USERNAME">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Label>
+                              <HBox alignment="CENTER" prefHeight="34.0" prefWidth="325.0" style="-fx-spacing: 5;">
+                                 <children>
+                                    <TextField fx:id="usernameField" prefHeight="25.0" prefWidth="272.0" promptText="Enter username" style="-fx-background-color: rgb(57, 42, 49, 1.0); -fx-font-size: 13; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: black; -fx-padding: 8 13; -fx-text-fill: #CFB2AB;" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <Label fx:id="usernamemessage" text=" " textFill="#ff6b6b">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+
+                        <VBox>
+                           <children>
+                              <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="43.0" prefWidth="112.0" style="-fx-text-fill: #BB9D93; -fx-font-weight: bold; -fx-font-size: 13;" text="PASSWORD">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Label>
+                              <HBox alignment="CENTER" prefHeight="34.0" prefWidth="325.0" style="-fx-spacing: 5;">
+                                 <children>
+                                    <PasswordField fx:id="PasswordField" prefHeight="25.0" prefWidth="272.0" promptText="Enter password" style="-fx-background-color: rgb(57, 42, 49, 1.0); -fx-font-size: 13; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: black; -fx-padding: 8 13; -fx-text-fill: #CFB2AB;" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <Label fx:id="passwordmessage" alignment="CENTER" contentDisplay="CENTER" text=" " textFill="#ff6b6b">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+
+                  <VBox alignment="CENTER">
+                     <children>
+                        <VBox alignment="CENTER">
+                           <children>
+                              <Button fx:id="loginbutton" mnemonicParsing="false" onAction="#onLogin" prefHeight="40.0" prefWidth="272.0" style="-fx-background-color: #EFD038; -fx-font-weight: bold; -fx-font-size: 13; -fx-text-fill: black; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;" text="LOGIN">
+                                 <font>
+                                    <Font name="System Bold" size="25.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </VBox>
+
+                        <VBox alignment="CENTER">
+                           <children>
+                              <Hyperlink fx:id="hypertoregister" onAction="#onGoRegister" style="-fx-text-fill: #EFD038; -fx-underline: true; -fx-font-weight: bold;" text="Need an account? Register">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Hyperlink>
+                           </children>
+                        </VBox>
+
+                        <VBox alignment="TOP_CENTER">
+                           <children>
+                              <Hyperlink fx:id="hyperbackhome" alignment="CENTER" onAction="#onBackHome" style="-fx-text-fill: #BCA09D; -fx-underline: true; -fx-font-weight: bold;" text="Back to Home">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Hyperlink>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+
+            <VBox fx:id="Registerbox" maxHeight="390.0" maxWidth="357.0" prefHeight="390.0" prefWidth="385.0" style="-fx-background-color: #583A42; -fx-border-radius: 10; -fx-background-radius: 10; -fx-border-color: black; -fx-spacing: 20;" visible="false">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="71.0" prefWidth="355.0">
+                     <children>
+                        <Label style="-fx-text-fill: #EBCE3F; -fx-font-weight: bold; -fx-font-size: 20;" text="REGISTER" textFill="#583a42" />
+                     </children>
+                  </VBox>
+
+                  <VBox prefHeight="201.0" prefWidth="357.0">
+                     <children>
+                        <VBox prefHeight="70.0" prefWidth="357.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="43.0" prefWidth="112.0" style="-fx-text-fill: #BB9D93; -fx-font-weight: bold; -fx-font-size: 13;" text="USERNAME">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Label>
+                              <HBox alignment="CENTER" prefHeight="34.0" prefWidth="325.0">
+                                 <children>
+                                    <TextField fx:id="reusernameField" prefHeight="25.0" prefWidth="272.0" promptText="Enter username" style="-fx-background-color: rgb(57, 42, 49, 1.0); -fx-font-size: 13; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: black; -fx-padding: 8 13; -fx-text-fill: #CFB2AB;" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <Label fx:id="reusernamemessage" alignment="CENTER" contentDisplay="CENTER" text=" " textFill="#ff6b6b">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+
+                        <VBox prefHeight="70.0" prefWidth="357.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="43.0" prefWidth="112.0" style="-fx-text-fill: #BB9D93; -fx-font-weight: bold; -fx-font-size: 13;" text="PASSWORD">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Label>
+                              <HBox alignment="CENTER" prefHeight="34.0" prefWidth="325.0">
+                                 <children>
+                                    <PasswordField fx:id="repasswordField" prefHeight="25.0" prefWidth="272.0" promptText="Enter password" style="-fx-background-color: rgb(57, 42, 49, 1.0); -fx-font-size: 13; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: black; -fx-padding: 8 13; -fx-text-fill: #CFB2AB;" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <Label fx:id="repasswordmessage" alignment="CENTER" contentDisplay="CENTER" text=" " textFill="#ff6b6b">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+
+                        <VBox prefHeight="70.0" prefWidth="357.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="25.0" prefWidth="174.0" style="-fx-text-fill: #BB9D93; -fx-font-weight: bold; -fx-font-size: 13;" text="CONFIRM PASSWORD">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Label>
+                              <HBox alignment="CENTER" prefHeight="34.0" prefWidth="325.0">
+                                 <children>
+                                    <PasswordField fx:id="reconfirmField" prefHeight="25.0" prefWidth="272.0" promptText="Enter password" style="-fx-background-color: rgb(57, 42, 49, 1.0); -fx-font-size: 13; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: black; -fx-padding: 8 13; -fx-text-fill: #CFB2AB;" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <Label fx:id="reconfirmmessage" alignment="CENTER" contentDisplay="CENTER" text=" " textFill="#ff6b6b">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+
+                  <VBox alignment="CENTER" prefHeight="98.0" prefWidth="357.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="43.0" prefWidth="357.0">
+                           <children>
+                              <Button fx:id="registerbutton" mnemonicParsing="false" onAction="#onRegister" prefHeight="40.0" prefWidth="272.0" style="-fx-background-color: #EFD038; -fx-font-weight: bold; -fx-font-size: 13; -fx-text-fill: black; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 10;" text="REGISTER">
+                                 <font>
+                                    <Font name="System Bold" size="25.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </VBox>
+
+                        <VBox alignment="CENTER" prefHeight="41.0" prefWidth="357.0">
+                           <children>
+                              <Hyperlink fx:id="hypertologin" onAction="#onGoLogin" style="-fx-text-fill: #EFD038; -fx-underline: true; -fx-font-weight: bold;" text="Have an account? Login">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Hyperlink>
+                           </children>
+                        </VBox>
+
+                        <VBox alignment="TOP_CENTER" prefHeight="39.0" prefWidth="357.0">
+                           <children>
+                              <Hyperlink fx:id="rehyperbackhome" alignment="CENTER" onAction="#onBackHome" style="-fx-text-fill: #BCA09D; -fx-underline: true; -fx-font-weight: bold;" text="Back to Home">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Hyperlink>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+
+   </children>
+</AnchorPane>
