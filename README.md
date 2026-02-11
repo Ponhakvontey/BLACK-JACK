@@ -25,7 +25,7 @@ This project demonstrates use of **Object-Oriented Programming**, **GUI design**
 * Background music and sound effects
 * Settings screen for audio control
 * Game guide overlay
-* Clean multi-screen JavaFX interface
+* Multi-screen JavaFX interface
 
 ---
 
