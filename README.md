@@ -50,6 +50,8 @@ application_audio/
 │   AudioSettingsController.java
 ```
 
+---
+
 ## Future Improvements
 
 * Password hashing
@@ -65,3 +67,4 @@ application_audio/
 * Dim Ponhakvontey
 * Neth Barom Phaknit
 
+---
