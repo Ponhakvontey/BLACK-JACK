@@ -61,7 +61,7 @@ application_audio/
 
 ## Contributors
 
-Dy Daly
-Dim Ponhakvontey
-Neth Barom Phaknit
+* Dy Daly
+* Dim Ponhakvontey
+* Neth Barom Phaknit
 
